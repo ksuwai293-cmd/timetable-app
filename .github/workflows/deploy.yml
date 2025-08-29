@@ -33,7 +33,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "18"
-          cache: 'pnpm'  # <--- 'npm' အစား 'pnpm' လို့ပြောင်းပါ
+          cache: 'pnpm'
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -41,10 +41,10 @@ jobs:
           version: 10 # သင့် package.json ထဲက pnpm version နဲ့ ကိုက်ညီအောင်ထားပါ
 
       - name: Install dependencies
-        run: pnpm install # <--- 'npm install' အစား 'pnpm install' လို့ပြောင်းပါ
+        run: pnpm install
 
       - name: Build
-        run: pnpm build # <--- 'npm run build' အစား 'pnpm build' လို့ပြောင်းပါ
+        run: pnpm build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
