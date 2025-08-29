@@ -29,16 +29,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10 # သင့် package.json ထဲက pnpm version နဲ့ ကိုက်ညီအောင်ထားပါ
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "18"
           cache: 'pnpm'
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10 # သင့် package.json ထဲက pnpm version နဲ့ ကိုက်ညီအောင်ထားပါ
 
       - name: Install dependencies
         run: pnpm install
