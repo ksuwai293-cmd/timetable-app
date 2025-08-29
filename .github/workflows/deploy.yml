@@ -16,7 +16,6 @@ permissions:
   id-token: write
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -31,8 +30,7 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10 # သင့် package.json ထဲက pnpm version နဲ့ ကိုက်ညီအောင်ထားပါ
+        # 'version' ကို ဖယ်ရှားလိုက်ပါ၊ ဒါမှ package.json ထဲက version ကို အလိုအလျောက်သုံးပါလိမ့်မယ်
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -52,7 +50,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload dist folder
           path: './dist'
 
       - name: Deploy to GitHub Pages
